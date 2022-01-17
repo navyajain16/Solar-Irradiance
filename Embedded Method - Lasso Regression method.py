@@ -2,13 +2,8 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.neighbors import KNeighborsClassifier as knn
 from sklearn.linear_model import LogisticRegression as LGR,Lasso
-from sklearn.ensemble import RandomForestClassifier as rfc
-from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import SelectFromModel
-from sklearn import metrics
-from sklearn.datasets import load_boston
 
 
 df = pd.read_csv('C:/solar/SolarData2019.csv') #Import file
