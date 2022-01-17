@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan 10 11:51:56 2022
-
-@author: navya
-"""
-
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -12,12 +5,9 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import warnings
 warnings.filterwarnings("ignore")
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-from sklearn.metrics import confusion_matrix
 import statsmodels.api as sm
 
-df = pd.read_csv('SolarData2019.csv')
+df = pd.read_csv('C:/solar/SolarData2019.csv') #Import file name
 X = df.drop("GHI",1)   #Feature Matrix
 y = df["GHI"]          #Target Variable
 df.head()
@@ -27,12 +17,10 @@ df.head()
 #Fitting sm.OLS model
 model = sm.OLS(y,X).fit()
 for attributeIndex in range (0, 17):
-    print(model.pvalues[attributeIndex]) 
+    print(model.pvalues[attributeIndex])  #Printing p value
 
-    #pp = model.pvalues[attributeIndex]
-p1= model.pvalues
-p1
 
+# Creating dataframe for p-values 
 pp = [0.7007187293770498, 3.391897948096692e-16,
 0.7811855727091972,
 0.3367490559180324,
@@ -51,7 +39,7 @@ pp = [0.7007187293770498, 3.391897948096692e-16,
 0.24015704262979284]
 
 
-# who v/s fare barplot
+# Features v/s p-value barplot
 cols = list(X.columns)
 dataa = pd.DataFrame(list(zip(cols,pp )),
                columns =['Feature', 'p-value'])
@@ -66,6 +54,7 @@ plt.rc('xtick',labelsize=11)
 plt.rc('ytick',labelsize=11)
 plt.tick_params(axis='x', labelsize=11, rotation=75)
 plt.tick_params(axis='y', labelsize=11)
+# Save the plot
 plt.savefig('pvalue.pdf',bbox_inches='tight')
 # Show the plot
 plt.show()
@@ -86,4 +75,4 @@ while (len(cols)>0):
     else:
         break
 selected_features_BE = cols
-print(selected_features_BE)
+print(selected_features_BE) 
