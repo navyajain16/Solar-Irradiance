@@ -1,2 +1,17 @@
 Following libraries are used in this paper:
 
+1. Sklearn
+This can be installed by typing the following line in anaconda or command prompt:  pip install scikit-learn
+
+2. Pandas
+This can be installed by typing the following line in anaconda or command prompt: pip install pandas
+
+3. Numpy
+This can be installed by typing the following line in anaconda or command prompt: pip install numpy
+
+4. Statsmodels
+This can be installed by typing the following line in anaconda or command prompt: pip install statsmodels
+
+5 Seaborn
+This can be installed by typing the following line in anaconda or command prompt: pip install seaborn
+
